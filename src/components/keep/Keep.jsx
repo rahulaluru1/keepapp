@@ -42,6 +42,10 @@ class  Keep extends React.Component {
       title: newNote.title,
       description: newNote.content
     }
+    this.setState({
+      ...this.state,
+      notes: this.state.notes.concat(note)
+    });
    axios.post('http://localhost:5000/notes/add', note)
         .then(res => console.log(res.data));
   }
@@ -59,7 +63,8 @@ render(){
     
     <div>
     <Header
-    onLogoutClick={this.onLogoutClick} />
+    onLogoutClick={this.onLogoutClick}
+     />
     <CreateArea onAdd={this.addNote} />
     {this.state.notes.map((noteItem, index) => {
       return (

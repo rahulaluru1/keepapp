@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../layout/Navabar"
 class Login extends Component {
   constructor() {
     super();
@@ -43,6 +44,8 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
 render() {
     const { errors } = this.state;
 return (
+  <div>
+      <Navbar/>
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
@@ -111,6 +114,8 @@ return (
           </div>
         </div>
       </div>
+  </div>
+      
     );
   }
 }

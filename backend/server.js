@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const passport = require("passport");
 const users = require("./routes/users");
+const notes = require("./routes/notes");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,6 +25,7 @@ connection.once('open', () => {
 app.use(passport.initialize());
 require("./passport")(passport);
 app.use("/users", users);
+app.use("/notes/:username",notes);
 
 
 app.listen(port, () => {

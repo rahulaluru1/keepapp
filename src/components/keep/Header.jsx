@@ -8,19 +8,19 @@ function Header(props) {
     <div>
      <header>
       <h1>Keeper</h1>
-    </header>
       <button
               style={{
-                width: "150px",
+                width: "100px",
                 borderRadius: "3px",
                 letterSpacing: "1.5px",
                 marginTop: "1rem"
               }}
               onClick={handleClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+              className="btn"
             >
               Logout
             </button>
+    </header>
     </div>
    
     

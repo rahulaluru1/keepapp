@@ -1,18 +1,23 @@
 const router = require('express').Router();
 let Note=require('../models/notes.model');
+let  ObjectID = require('mongodb').ObjectID;
 
-router.route('/').get((req, res) => {
-    const username=req.params.username;
-    Note.find({"username":username})
-      .then(notes => res.json(notes))
+router.route('/:id').get((req, res) => {
+    const id=req.params.id;
+    Note.findById(ObjectID(id))
+      .then(notes => {
+        res.json(
+          notes
+        )
+      })
       .catch(err => res.status(400).json('Error: ' + err));
   });
   
-  router.route('/add').post((req, res) => {
+  router.route('/:id/add').post((req, res) => {
     const title = req.body.title;
     const content=req.body.content;
-    const username=req.params.username;
-    Note.findOne({'username':username}).exec(function(err,note){
+    const id=req.params.id;
+    Note.findOne({'_id':id}).exec(function(err,note){
       note.notes.push({"title":title,
                       "description":content});
       note.save().then((res) =>{

@@ -25,7 +25,7 @@ connection.once('open', () => {
 app.use(passport.initialize());
 require("./passport")(passport);
 app.use("/users", users);
-app.use("/notes/:username",notes);
+app.use("/notes",notes);
 
 
 app.listen(port, () => {

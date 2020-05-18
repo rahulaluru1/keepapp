@@ -19,6 +19,7 @@ class  Keep extends React.Component {
     this.addNote=this.addNote.bind(this);
     this.deleteNote=this.deleteNote.bind(this);
     this.onLogoutClick=this.onLogoutClick.bind(this);
+    console.log(this.props.auth.user);
   }
   onLogoutClick = e => {
     e.preventDefault();

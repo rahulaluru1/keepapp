@@ -55,9 +55,7 @@ class  Keep extends React.Component {
   }
 
    deleteNote(noteId) {
-     console.log(this.props.auth.user.id)
-     console.log(noteId )
-     axios.delete('http://localhost:5000/notes/'+this.props.auth.user.id+noteId)
+     axios.delete('http://localhost:5000/notes/'+this.props.auth.user.id+'/'+noteId)
     .then(res => console.log(res.data));
   this.setState({
     notes: this.state.notes.filter(el => el._id !== noteId)
@@ -65,7 +63,6 @@ class  Keep extends React.Component {
   }
 render(){
   return (
-    
     <div>
     <Header
     onLogoutClick={this.onLogoutClick}

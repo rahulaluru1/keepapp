@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from 'axios';
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import '../App.css';
-import { compareSync } from "bcryptjs";
 
 class  Keep extends React.Component {
   constructor(props){
